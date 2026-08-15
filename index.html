@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>بنك أميرالد الغرب 💠</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="logo">💠</span><div><strong>بنك أميرالد الغرب</strong><small>نقابة أميرالد الغرب</small></div></div>
+    <button id="logoutBtn" class="btn danger hidden">تسجيل الخروج</button>
+  </header>
+
+  <main class="container">
+    <section id="loginView" class="card auth-card">
+      <h1>تسجيل الدخول</h1>
+      <p class="muted">ادخل بحساب عضو النقابة.</p>
+      <form id="loginForm">
+        <label>البريد الإلكتروني<input id="email" type="email" required placeholder="name@example.com"></label>
+        <label>كلمة المرور<input id="password" type="password" required minlength="6"></label>
+        <button class="btn primary" type="submit">دخول</button>
+        <p id="loginMsg" class="msg"></p>
+      </form>
+    </section>
+
+    <section id="bankView" class="hidden">
+      <div class="welcome">
+        <div><h1>مرحبًا، <span id="memberName">عضو</span> 💠</h1><p class="muted">حسابك في بنك أميرالد الغرب</p></div>
+      </div>
+
+      <div class="grid">
+        <div class="balance card"><span>الرصيد الحالي</span><strong id="balance">0</strong><small>عملة النقابة</small></div>
+        <div class="card"><span>رقم العضوية</span><strong id="memberId">—</strong></div>
+        <div class="card"><span>الصلاحية</span><strong id="role">عضو</strong></div>
+      </div>
+
+      <div class="grid two">
+        <section class="card">
+          <h2>تحويل رصيد</h2>
+          <form id="transferForm">
+            <label>معرّف المستلم<input id="receiverId" required placeholder="مثال: EW-1002"></label>
+            <label>المبلغ<input id="amount" type="number" min="1" step="1" required></label>
+            <button class="btn primary" type="submit">إرسال التحويل</button>
+            <p id="transferMsg" class="msg"></p>
+          </form>
+        </section>
+
+        <section class="card">
+          <h2>آخر العمليات</h2>
+          <div id="transactions" class="transactions"><p class="muted">لا توجد عمليات بعد.</p></div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
